@@ -1,9 +1,10 @@
 let
   jobs = rec {
-    build =
+    happstackServerGit =
       { system ? builtins.currentSystem }:
-      let pkgs = import <nixpkgs> { inherit system; }; in
-      pkgs.haskellngPackages.happstack-server;
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage ./happstack-server-git-head.nix {};
   };
 in
   jobs
