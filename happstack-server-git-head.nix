@@ -9,7 +9,7 @@
 mkDerivation {
   pname = "happstack-server";
   version = "7.4.2";
-  src = happstack-server-git;
+  src = <happstack-server-git>;
   buildDepends = [
     base base64-bytestring blaze-html bytestring containers directory
     exceptions extensible-exceptions filepath hslogger html
