@@ -19,7 +19,7 @@
     reform-git =
        pkgs.haskellngPackages.callPackage (<reform-git> + /reform) {};
 
-    haskell-reform-hsp =
+    reform-hsp =
        pkgs.haskellngPackages.callPackage (<reform-git> + /reform-hsp) {};
 
     reform-happstack-git =
