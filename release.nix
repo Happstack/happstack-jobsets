@@ -84,6 +84,12 @@ let
       in
        pkgs.haskellngPackages.callPackage <clckwrks-git> {};
 
+   clckwrks-cli-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <clckwrks-cli-git> {};
+
    clckwrks-plugin-page-git =
       { system ? builtins.currentSystem }:
       let pkgs = import <nixpkgs> { inherit system; };
