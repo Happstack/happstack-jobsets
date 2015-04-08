@@ -72,6 +72,54 @@ let
       in
        pkgs.haskellngPackages.callPackage (<web-routes-git> + /web-routes-hsp) {};
 
+   web-plugins-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage (<web-plugins-git> + /web-plugins) {};
+
+   clckwrks-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <clckwrks-git> {};
+
+   clckwrks-plugin-page-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <clckwrks-plugin-page-git> {};
+
+   clckwrks-plugin-media-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <clckwrks-plugin-media-git> {};
+
+   clckwrks-theme-bootstrap-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <clckwrks-theme-bootstrap-git> {};
+
+   clckwrks-theme-clckwrks-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <clckwrks-theme-clckwrks-git> {};
+
+   example-dot-org-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <example-dot-org-git> {};
+
+   clckwrks-dot-com-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <clckwrks-dot-com-git> {};
+
    };
 in
   jobs
