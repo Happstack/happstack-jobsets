@@ -24,6 +24,12 @@ let
       in
        pkgs.haskellngPackages.callPackage <happstack-jmacro-git> {};
 
+    happstack-authenticate-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <happstack-authenticate-git> {};
+
     reform-git =
       { system ? builtins.currentSystem }:
       let pkgs = import <nixpkgs> { inherit system; };
