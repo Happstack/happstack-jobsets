@@ -28,19 +28,19 @@ let
       { system ? builtins.currentSystem }:
       let pkgs = import <nixpkgs> { inherit system; };
       in
-       pkgs.haskellngPackages.callPackage <reform-git>/reform {};
+       pkgs.haskellngPackages.callPackage (<reform-git> + /reform) {};
 
    reform-hsp-git =
       { system ? builtins.currentSystem }:
       let pkgs = import <nixpkgs> { inherit system; };
       in
-       pkgs.haskellngPackages.callPackage <reform-git>/reform-hsp {};
+       pkgs.haskellngPackages.callPackage (<reform-git> + /reform-hsp) {};
 
    reform-happstack-git =
       { system ? builtins.currentSystem }:
       let pkgs = import <nixpkgs> { inherit system; };
       in
-       pkgs.haskellngPackages.callPackage <reform-git>/reform-happstack {};
+       pkgs.haskellngPackages.callPackage (<reform-git> + /reform-happstack) {};
 
   };
 in
