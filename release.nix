@@ -24,6 +24,24 @@ let
       in
        pkgs.haskellngPackages.callPackage <happstack-jmacro-git> {};
 
+   reform-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <reform-git> {};
+
+   reform-hsp-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <reform-hsp-git> {};
+
+   reform-happstack-git =
+      { system ? builtins.currentSystem }:
+      let pkgs = import <nixpkgs> { inherit system; };
+      in
+       pkgs.haskellngPackages.callPackage <reform-happstack-git> {};
+
   };
 in
   jobs
