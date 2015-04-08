@@ -1,5 +1,6 @@
 { system ? builtins.currentSystem }:
- let pkgs = import <nixpkgs> { inherit system; };
+ let pkgs = import <nixpkgs> { inherit system;
+                             };
      jobs = rec {
     happstack-server-git =
        pkgs.haskellngPackages.callPackage <happstack-server-git> {};
@@ -19,7 +20,7 @@
     reform-git =
        pkgs.haskellngPackages.callPackage (<reform-git> + /reform) {};
 
-    reform-hsp =
+    reform-hsp-git =
        pkgs.haskellngPackages.callPackage (<reform-git> + /reform-hsp) {};
 
     reform-happstack-git =
@@ -41,6 +42,12 @@
        pkgs.haskellngPackages.callPackage (<web-plugins-git> + /web-plugins) {};
 
    clckwrks-git =
+     let pkgs = import <nixpkgs> { inherit system;
+                                   config.packageOverrides = pkgs: rec
+                                     { haskellngPackages = pkgs.haskellngPackages.override { overrides = self: super: { reform-hsp = reform-hsp-git; }; };
+                                     };
+                             };
+     in
        pkgs.haskellngPackages.callPackage <clckwrks-git> {};
 
    clckwrks-cli-git =
