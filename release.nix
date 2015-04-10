@@ -46,7 +46,7 @@
        clckwrks-cli-git             = clckwrks-cli;
        clckwrks-plugin-page-git     = clckwrks-plugin-page;
        clckwrks-plugin-media-git    = clckwrks-plugin-media;
-       clckwrks-theme-bootstrap-git = clckwrk-theme-bootstrap;
+       clckwrks-theme-bootstrap-git = clckwrks-theme-bootstrap;
        clckwrks-theme-clckwrks-git  = clckwrks-theme-clckwrks;
        example-dot-org-git          = example-dot-org;
        clckwrks-dot-com-git         = clckwrks-dot-com;
