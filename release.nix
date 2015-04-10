@@ -32,7 +32,7 @@
        happstack-authenticate-git   = happstack-authenticate;
        happstack-server-git         = happstack-server;
        happstack-server-tls-git     = happstack-server-tls;
-       happstack-hsp-git            = happstack-hsp-git;
+       happstack-hsp-git            = happstack-hsp;
        happstack-jmacro-git         = happstack-jmacro;
        reform-git                   = reform;
        reform-hsp-git               = reform-hsp;
