@@ -49,7 +49,7 @@
        clckwrks-theme-bootstrap-git = clckwrk-theme-bootstrap;
        clckwrks-theme-clckwrks-git  = clckwrks-theme-clckwrks;
        example-dot-org-git          = example-dot-org;
-       clckwrks-dot-com-git         = clckrks-dot-com;
+       clckwrks-dot-com-git         = clckwrks-dot-com;
    };
 in
   jobs
