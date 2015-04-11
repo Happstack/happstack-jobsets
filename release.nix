@@ -1,5 +1,10 @@
 { system ? builtins.currentSystem }:
-    let pkgs = import <nixpkgs> { inherit system;
+    let overrideCabal = drv: f: (drv.override (args: args // {
+          mkDerivation = drv: args.mkDerivation (drv // f drv);
+        })) // {
+          overrideScope = scope: overrideCabal (drv.overrideScope scope) f;
+        };
+        pkgs = import <nixpkgs> { inherit system;
                                    config.packageOverrides = pkgs: rec
                                      { haskellngPackages = pkgs.haskellngPackages.override
                                          { overrides = self: super:
@@ -16,6 +21,7 @@
                                               happstack-server-tls     = self.callPackage <happstack-server-tls-git> {};
                                               happstack-hsp            = self.callPackage <happstack-hsp-git> {};
                                               happstack-jmacro         = self.callPackage <happstack-jmacro-git> {};
+                                              magic                    = overrideCabal super.magic (drv: { extraLibraries = (drv.extraLibraries or []) ++ [pkgs.file]; });
                                               reform                   = self.callPackage (<reform-git> + /reform) {};
                                               reform-happstack         = self.callPackage (<reform-git> + /reform-happstack) {};
                                               reform-hsp               = self.callPackage (<reform-git> + /reform-hsp) {};
