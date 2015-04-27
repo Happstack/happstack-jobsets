@@ -8,7 +8,9 @@
                                    config.packageOverrides = pkgs: rec
                                      { haskellngPackages = pkgs.haskellngPackages.override
                                          { overrides = self: super:
-                                            { clckwrks                 = self.callPackage <clckwrks-git> {};
+                                            {
+                                              jmacro                   = pkgs.stdenv.lib.overrideDerivation pkgs.haskellngPackages.jmacro (oldAttrs: { patches = [ ./jmacro.patch ]; });
+                                              clckwrks                 = self.callPackage <clckwrks-git> {};
                                               clckwrks-cli             = self.callPackage <clckwrks-cli-git> {};
                                               clckwrks-dot-com         = self.callPackage <clckwrks-dot-com-git> {};
                                               clckwrks-plugin-page     = self.callPackage <clckwrks-plugin-page-git> {};

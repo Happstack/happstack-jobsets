@@ -1,0 +1,40 @@
+diff -rN -u old-jmacro/Language/Javascript/JMacro/QQ.hs new-jmacro/Language/Javascript/JMacro/QQ.hs
+--- old-jmacro/Language/Javascript/JMacro/QQ.hs 2015-04-27 12:49:15.121935850 -0700
++++ new-jmacro/Language/Javascript/JMacro/QQ.hs 2015-04-27 12:49:15.129935850 -0700
+@@ -13,7 +13,7 @@
+ -----------------------------------------------------------------------------
+ 
+ module Language.Javascript.JMacro.QQ(jmacro,jmacroE,parseJM,parseJME) where
+-import Prelude hiding (tail, init, head, last, minimum, maximum, foldr1, foldl1, (!!), read)
++import Prelude hiding (tail, init, head, last, minimum, maximum, foldr1, foldl1, (!!), read, (<*))
+ import Control.Applicative hiding ((<|>),many,optional,(<*))
+ import Control.Arrow(first)
+ import Control.Monad.State.Strict
+@@ -53,7 +53,9 @@
+ 
+ -- | QuasiQuoter for a block of JMacro statements.
+ jmacro :: QuasiQuoter
+-jmacro = QuasiQuoter {quoteExp = quoteJMExp, quotePat = quoteJMPat}
++jmacro = QuasiQuoter {quoteExp = quoteJMExp, quotePat = quoteJMPat,
++                      quoteType = error "The jmacro QuasiQuoter can only be used on expressions and patterns.",
++                      quoteDec = error "The jmacro QuasiQuoter can only be used on expressions and patterns."}
+ 
+ -- | QuasiQuoter for a JMacro expression.
+ jmacroE :: QuasiQuoter
+@@ -105,6 +107,7 @@
+ antiIdents ss x = foldr antiIdent x ss
+ 
+ fixIdent :: String -> String
++fixIdent "_" = "_x_"
+ fixIdent css@(c:_)
+     | isUpper c = '_' : escapeDollar css
+     | otherwise = escapeDollar css
+diff -rN -u old-jmacro/Language/Javascript/JMacro/TypeCheck.hs new-jmacro/Language/Javascript/JMacro/TypeCheck.hs
+--- old-jmacro/Language/Javascript/JMacro/TypeCheck.hs  2015-04-27 12:49:15.121935850 -0700
++++ new-jmacro/Language/Javascript/JMacro/TypeCheck.hs  2015-04-27 12:49:15.129935850 -0700
+@@ -1,4 +1,4 @@
+-{-# LANGUAGE GeneralizedNewtypeDeriving, FlexibleInstances, PatternGuards, RankNTypes #-}
++{-# LANGUAGE GeneralizedNewtypeDeriving, FlexibleContexts, FlexibleInstances, PatternGuards, RankNTypes #-}
+ 
+ module Language.Javascript.JMacro.TypeCheck where
+ 
