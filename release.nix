@@ -23,6 +23,7 @@
                                               happstack-server-tls     = self.callPackage <happstack-server-tls-git> {};
                                               happstack-hsp            = self.callPackage <happstack-hsp-git> {};
                                               happstack-jmacro         = self.callPackage <happstack-jmacro-git> {};
+                                              harp                     = overrideCabal super.harp (drv: { src = <harp-git>; });
                                               magic                    = overrideCabal super.magic (drv: { extraLibraries = (drv.extraLibraries or []) ++ [pkgs.file]; });
                                               reform                   = self.callPackage (<reform-git> + /reform) {};
                                               reform-happstack         = self.callPackage (<reform-git> + /reform-happstack) {};
