@@ -19,6 +19,7 @@
                                               clckwrks-theme-clckwrks  = self.callPackage <clckwrks-theme-clckwrks-git> {};
                                               example-dot-org          = self.callPackage <example-dot-org-git> {};
                                               happstack-authenticate   = self.callPackage <happstack-authenticate-git> {};
+                                              happstack-clientession   = self.callPackage <happstack-clientsession-git> {};
                                               happstack-server         = self.callPackage <happstack-server-git> {};
                                               happstack-server-tls     = self.callPackage <happstack-server-tls-git> {};
                                               happstack-hsp            = self.callPackage <happstack-hsp-git> {};
