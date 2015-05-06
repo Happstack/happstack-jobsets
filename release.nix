@@ -6,10 +6,10 @@
         };
         pkgs = import <nixpkgs> { inherit system;
                                    config.packageOverrides = pkgs: rec
-                                     { haskellngPackages = pkgs.haskellngPackages.override
+                                     { haskellPackages = pkgs.haskellPackages.override
                                          { overrides = self: super:
                                             {
-                                              jmacro                   = pkgs.stdenv.lib.overrideDerivation pkgs.haskellngPackages.jmacro (oldAttrs: { patches = [ ./jmacro.patch ]; });
+                                              jmacro                   = pkgs.stdenv.lib.overrideDerivation pkgs.haskellPackages.jmacro (oldAttrs: { patches = [ ./jmacro.patch ]; });
                                               clckwrks                 = self.callPackage <clckwrks-git> {};
                                               clckwrks-cli             = self.callPackage <clckwrks-cli-git> {};
                                               clckwrks-dot-com         = self.callPackage <clckwrks-dot-com-git> {};
@@ -39,7 +39,7 @@
                                          };
                                      };
                                 };
-     jobs = with pkgs.haskellngPackages; rec {
+     jobs = with pkgs.haskellPackages; rec {
        happstack-authenticate-git   = happstack-authenticate;
        happstack-server-git         = happstack-server;
        happstack-server-tls-git     = happstack-server-tls;
