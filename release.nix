@@ -42,7 +42,7 @@
                                      };
                                 };
      jobs = with pkgs.haskellPackages; rec {
-       hackage-whatsnew-get         = hackage-whatsnew;
+       hackage-whatsnew-git         = hackage-whatsnew;
        happstack-authenticate-git   = happstack-authenticate;
        happstack-server-git         = happstack-server;
        happstack-server-tls-git     = happstack-server-tls;
