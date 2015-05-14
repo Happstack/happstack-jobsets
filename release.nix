@@ -18,6 +18,7 @@
                                               clckwrks-theme-bootstrap = self.callPackage <clckwrks-theme-bootstrap-git> {};
                                               clckwrks-theme-clckwrks  = self.callPackage <clckwrks-theme-clckwrks-git> {};
                                               example-dot-org          = self.callPackage <example-dot-org-git> {};
+                                              hackage-whatsnew         = self.callPackage <hackage-whatsnew-git> {};
                                               happstack-authenticate   = self.callPackage <happstack-authenticate-git> {};
                                               happstack-clientession   = self.callPackage <happstack-clientsession-git> {};
                                               happstack-server         = self.callPackage <happstack-server-git> {};
@@ -41,6 +42,7 @@
                                      };
                                 };
      jobs = with pkgs.haskellPackages; rec {
+       hackage-whatsnew             = hackage-whatsnew;
        happstack-authenticate-git   = happstack-authenticate;
        happstack-server-git         = happstack-server;
        happstack-server-tls-git     = happstack-server-tls;
