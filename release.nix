@@ -30,6 +30,7 @@
                                               magic                    = overrideCabal super.magic (drv: { extraLibraries = (drv.extraLibraries or []) ++ [pkgs.file]; });
 #                                              vector                   = overrideCabal super.vector (drv: { doCheck = false; });
                                               reform                   = self.callPackage (<reform-git> + /reform) {};
+                                              reform-blaze             = self.callPackage (<reform-git> + /reform-blaze) {};
                                               reform-happstack         = self.callPackage (<reform-git> + /reform-happstack) {};
                                               reform-hsp               = self.callPackage (<reform-git> + /reform-hsp) {};
                                               web-plugins              = self.callPackage (<web-plugins-git> + /web-plugins) {};
@@ -49,6 +50,7 @@
        happstack-hsp-git            = happstack-hsp;
        happstack-jmacro-git         = happstack-jmacro;
        reform-git                   = reform;
+       reform-blaze-git             = reform-blaze;
        reform-hsp-git               = reform-hsp;
        reform-happstack-git         = reform-happstack;
        web-routes-git               = web-routes;
