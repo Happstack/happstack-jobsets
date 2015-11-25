@@ -8,7 +8,7 @@
                                    config.packageOverrides = pkgs: rec
                                      { haskellPackages = pkgs.haskellPackages.override
                                          { overrides = self: super:
-                                            {
+                                            { cabalsdist               = self.callPackage <cabalsdist-dit> {};
                                               jmacro                   = pkgs.stdenv.lib.overrideDerivation pkgs.haskellPackages.jmacro (oldAttrs: { patches = [ ./jmacro.patch ]; });
                                               clckwrks                 = self.callPackage <clckwrks-git> {};
                                               clckwrks-cli             = self.callPackage <clckwrks-cli-git> {};
@@ -43,6 +43,7 @@
                                      };
                                 };
      jobs = with pkgs.haskellPackages; rec {
+       cabalsdist-git               = cabalsdist;
        hackage-whatsnew-git         = hackage-whatsnew;
        happstack-authenticate-git   = happstack-authenticate;
        happstack-server-git         = happstack-server;
@@ -69,5 +70,3 @@
    };
 in
   jobs
-
-
