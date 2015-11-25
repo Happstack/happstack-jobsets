@@ -44,7 +44,6 @@
                                      };
                                 };
      jobs = with pkgs.haskellPackages; rec {
-       cabalsdist-git               = cabalsdist;
        hackage-whatsnew-git         = hackage-whatsnew;
        happstack-authenticate-git   = happstack-authenticate;
        happstack-server-git         = happstack-server;
