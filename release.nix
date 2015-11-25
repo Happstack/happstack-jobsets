@@ -8,7 +8,7 @@
                                    config.packageOverrides = pkgs: rec
                                      { haskellPackages = pkgs.haskellPackages.override
                                          { overrides = self: super:
-                                            { cabalsdist               = self.callPackage <cabalsdist-dit> {};
+                                            { cabalsdist               = self.callPackage <cabalsdist-git> {};
                                               jmacro                   = pkgs.stdenv.lib.overrideDerivation pkgs.haskellPackages.jmacro (oldAttrs: { patches = [ ./jmacro.patch ]; });
                                               clckwrks                 = self.callPackage <clckwrks-git> {};
                                               clckwrks-cli             = self.callPackage <clckwrks-cli-git> {};
