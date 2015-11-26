@@ -42,14 +42,26 @@
                                             };
                                          };
                                      };
+                                     haskell = pkgs.haskell // {
+                                         packages = pkgs.haskell.packages // {
+                                           ghcjs = pkgs.haskell.packages.ghcjs.override rec {
+                                            overrides = self: super: {
+                                              isomaniac                = self.callPackage <isomaniac-src> {};
+                                              servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
+                                            };
+                                           };
+                                        };
+                                      };
                                 };
-     jobs = with pkgs.haskellPackages; rec {
+
+     jobs = with pkgs.haskellPackages; with pkgs.haskell.packages.ghcjs; rec {
        hackage-whatsnew-git         = hackage-whatsnew;
        happstack-authenticate-git   = happstack-authenticate;
        happstack-server-git         = happstack-server;
        happstack-server-tls-git     = happstack-server-tls;
        happstack-hsp-git            = happstack-hsp;
        happstack-jmacro-git         = happstack-jmacro;
+       isomaniac-git                = isomaniac;
        reform-git                   = reform;
        reform-blaze-git             = reform-blaze;
        reform-hsp-git               = reform-hsp;
