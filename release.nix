@@ -41,8 +41,8 @@
                                               web-routes-hsp           = self.callPackage (<web-routes-git> + /web-routes-hsp) {};
                                             };
                                          };
-                                     };
-                                     haskell = pkgs.haskell // {
+
+                                       haskell = pkgs.haskell // {
                                          packages = pkgs.haskell.packages // {
                                            ghcjs = pkgs.haskell.packages.ghcjs.override rec {
                                             overrides = self: super: {
@@ -52,6 +52,7 @@
                                            };
                                         };
                                       };
+                                     };
                                 };
 
      jobs = with pkgs.haskellPackages; with pkgs.haskell.packages.ghcjs; rec {
