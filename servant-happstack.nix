@@ -5,7 +5,7 @@
 mkDerivation {
   pname = "servant-happstack";
   version = "0.1.0.0";
-  src = <servant-happstack-src>;
+  src = <servant-src>/servant-happstack;
   libraryHaskellDepends = [
     base bytestring case-insensitive containers happstack-server
     http-api-data http-types mmorph mtl network servant
