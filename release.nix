@@ -34,6 +34,7 @@
                                               reform-blaze             = self.callPackage (<reform-git> + /reform-blaze) {};
                                               reform-happstack         = self.callPackage (<reform-git> + /reform-happstack) {};
                                               reform-hsp               = self.callPackage (<reform-git> + /reform-hsp) {};
+                                              servant                  = self.callPackage ./pkgs/servant {};
                                               servant-happstack        = self.callPackage ./pkgs/servant-happstack {};
                                               web-plugins              = self.callPackage (<web-plugins-git> + /web-plugins) {};
                                               web-routes               = self.callPackage (<web-routes-git> + /web-routes) {};
