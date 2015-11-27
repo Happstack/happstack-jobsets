@@ -68,6 +68,7 @@
        reform-blaze-git             = reform-blaze;
        reform-hsp-git               = reform-hsp;
        reform-happstack-git         = reform-happstack;
+       servant-git                  = servant;
        servant-happstack-git        = servant-happstack;
        web-routes-git               = web-routes;
        web-routes-boomerang-git     = web-routes-boomerang;
