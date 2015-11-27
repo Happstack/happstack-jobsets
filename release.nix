@@ -27,6 +27,7 @@
                                               happstack-hsp            = self.callPackage <happstack-hsp-git> {};
                                               happstack-jmacro         = self.callPackage <happstack-jmacro-git> {};
                                               harp                     = overrideCabal super.harp (drv: { src = <harp-git>; });
+                                              http-api-data            = self.callPackage ./pkgs/http-api-data {};
                                               ixset-typed              = overrideCabal super.ixset-typed (drv: { src = <ixset-typed-git>; });
                                               magic                    = overrideCabal super.magic (drv: { extraLibraries = (drv.extraLibraries or []) ++ [pkgs.file]; });
 #                                              vector                   = overrideCabal super.vector (drv: { doCheck = false; });
