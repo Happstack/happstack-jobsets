@@ -34,6 +34,7 @@
                                               reform-blaze             = self.callPackage (<reform-git> + /reform-blaze) {};
                                               reform-happstack         = self.callPackage (<reform-git> + /reform-happstack) {};
                                               reform-hsp               = self.callPackage (<reform-git> + /reform-hsp) {};
+                                              servant-happstack        = self.callPackage ./servant-happstack.nix {};
                                               web-plugins              = self.callPackage (<web-plugins-git> + /web-plugins) {};
                                               web-routes               = self.callPackage (<web-routes-git> + /web-routes) {};
                                               web-routes-boomerang     = self.callPackage (<web-routes-git> + /web-routes-boomerang) {};
@@ -47,7 +48,8 @@
                                            ghcjs = pkgs.haskell.packages.ghcjs.override rec {
                                             overrides = self: super: {
                                               isomaniac                = self.callPackage <isomaniac-src> {};
-                                              servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
+#                                              servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
+#                                              servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
                                             };
                                            };
                                         };
@@ -65,6 +67,7 @@
        reform-blaze-git             = reform-blaze;
        reform-hsp-git               = reform-hsp;
        reform-happstack-git         = reform-happstack;
+       servant-happstack-git        = servant-happstack;
        web-routes-git               = web-routes;
        web-routes-boomerang-git     = web-routes-boomerang;
        web-routes-happstack-git     = web-routes-happstack;
