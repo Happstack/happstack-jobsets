@@ -91,6 +91,7 @@
     ghcjsJobs = with pkgs.haskell.packages.ghcjs; rec {
       isomaniac-git                = isomaniac;
       servant-isomaniac-git        = servant-isomaniac;
+      servant-git-ghcjs            = servant;
       http-api-data-old-ghcjs      = http-api-data;
     };
 in
