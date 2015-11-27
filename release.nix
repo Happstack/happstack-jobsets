@@ -50,8 +50,8 @@
                                            ghcjs = pkgs.haskell.packages.ghcjs.override rec {
                                             overrides = self: super: {
                                               isomaniac                = self.callPackage <isomaniac-src> {};
-#                                              servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
-#                                              servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
+                                              servant                  = self.callPackage ./pkgs/servant {};
+                                              servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
                                             };
                                            };
                                         };
@@ -88,6 +88,7 @@
 
     ghcjsJobs = with pkgs.haskell.packages.ghcjs; rec {
       isomaniac-git                = isomaniac;
+      servant-isomaniac-git        = servant-isomaniac;
     };
 in
   ghcJobs // ghcjsJobs
