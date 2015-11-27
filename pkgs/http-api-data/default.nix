@@ -3,8 +3,8 @@
 }:
 mkDerivation {
   pname = "http-api-data";
-  version = "0.2.1";
-  sha256 = "0wbgqn4w1snf5rdzr313756h2i8w7a4mhbsj9gdhqxs5k7bkhqc5";
+  version = "0.1.1.1";
+  sha256 = "0xcy0cvjbwn8s03lrwnnihfsbyhhc4vq67q0xhb2gsvmfb2qdb1j";
   libraryHaskellDepends = [ base bytestring text time ];
   testHaskellDepends = [
     base doctest Glob hspec HUnit QuickCheck text time
