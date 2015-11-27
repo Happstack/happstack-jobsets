@@ -49,6 +49,7 @@
                                          packages = pkgs.haskell.packages // {
                                            ghcjs = pkgs.haskell.packages.ghcjs.override rec {
                                             overrides = self: super: {
+                                              http-api-data            = self.callPackage ./pkgs/http-api-data {};
                                               isomaniac                = self.callPackage <isomaniac-src> {};
                                               servant                  = self.callPackage ./pkgs/servant {};
                                               servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
