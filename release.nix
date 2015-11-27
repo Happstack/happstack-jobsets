@@ -66,6 +66,7 @@
        happstack-server-tls-git     = happstack-server-tls;
        happstack-hsp-git            = happstack-hsp;
        happstack-jmacro-git         = happstack-jmacro;
+       http-api-data-0.1.1.1        = http-api-data;
        reform-git                   = reform;
        reform-blaze-git             = reform-blaze;
        reform-hsp-git               = reform-hsp;
@@ -90,6 +91,7 @@
     ghcjsJobs = with pkgs.haskell.packages.ghcjs; rec {
       isomaniac-git                = isomaniac;
       servant-isomaniac-git        = servant-isomaniac;
+      http-api-data-0.1.1.1        = http-api-data;
     };
 in
   ghcJobs // ghcjsJobs
