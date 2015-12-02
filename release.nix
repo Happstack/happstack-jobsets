@@ -9,7 +9,6 @@
        hackage-whatsnew-git         = hackage-whatsnew;
        happstack-authenticate-git   = happstack-authenticate;
        happstack-server-git         = happstack-server;
-       happstack-server-745         = pkgs.haskellPackages.callPackage ./pkgs/happstack-server-7.4.5 {};
        happstack-server-tls-git     = happstack-server-tls;
        happstack-hsp-git            = happstack-hsp;
        happstack-jmacro-git         = happstack-jmacro;

@@ -19,6 +19,7 @@
 , isomaniac-src ? <isomaniac-src>
 , ixset-typed-src ? <ixset-typed-src>
 , reform-src ? <reform-src>
+, servant-src ? <servant-src>
 , servant-isomaniac-src ? <servant-isomaniac-src>
 , web-routes-src  ? <web-routes-src>
 , web-plugins-src ? <web-plugins-src>
@@ -49,6 +50,7 @@ let overrideCabal = drv: f: (drv.override (args: args // {
           happstack-authenticate   = self.callPackage happstack-authenticate-src {};
           happstack-clientession   = self.callPackage happstack-clientsession-src {};
           happstack-server         = self.callPackage happstack-server-src {};
+          happstack-server-745         = pkgs.haskellPackages.callPackage ./pkgs/happstack-server-7.4.5 {};
           happstack-server-tls     = self.callPackage happstack-server-tls-src {};
           happstack-hsp            = self.callPackage happstack-hsp-src {};
           happstack-jmacro         = self.callPackage happstack-jmacro-src {};
@@ -60,8 +62,8 @@ let overrideCabal = drv: f: (drv.override (args: args // {
           reform-blaze             = self.callPackage (reform-src + /reform-blaze) {};
           reform-happstack         = self.callPackage (reform-src + /reform-happstack) {};
           reform-hsp               = self.callPackage (reform-src + /reform-hsp) {};
-          servant                  = self.callPackage ./pkgs/servant {};
-          servant-happstack        = self.callPackage ./pkgs/servant-happstack {};
+          servant                  = self.callPackage ./pkgs/servant { servant-src = servant-src; };
+          servant-happstack        = self.callPackage ./pkgs/servant-happstack { servant-src = servant-src; };
           web-plugins              = self.callPackage (web-plugins-src + /web-plugins) {};
           web-routes               = self.callPackage (web-routes-src + /web-routes) {};
           web-routes-boomerang     = self.callPackage (web-routes-src + /web-routes-boomerang) {};
@@ -87,3 +89,4 @@ let overrideCabal = drv: f: (drv.override (args: args // {
       };
  in
   web-core-pkgs
+

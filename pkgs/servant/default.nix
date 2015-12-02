@@ -2,12 +2,12 @@
 , bytestring-conversion, case-insensitive, directory, doctest
 , filemanip, filepath, hspec, http-api-data, http-media, http-types
 , network-uri, parsec, QuickCheck, quickcheck-instances, stdenv
-, string-conversions, text, url, vault
+, string-conversions, text, url, vault, servant-src
 }:
 mkDerivation {
   pname = "servant";
   version = "0.5";
-  src = (<servant-src> + /servant);
+  src = (servant-src + /servant);
   libraryHaskellDepends = [
     aeson attoparsec base bytestring bytestring-conversion
     case-insensitive http-api-data http-media http-types network-uri
