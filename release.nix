@@ -4,61 +4,7 @@
         })) // {
           overrideScope = scope: overrideCabal (drv.overrideScope scope) f;
         };
-        pkgs = import <nixpkgs> { inherit system;
-                                   config.packageOverrides = pkgs: rec
-                                     { haskellPackages = pkgs.haskellPackages.override
-                                         { overrides = self: super:
-                                            { cabalsdist               = self.callPackage <cabalsdist-git> {};
-#                                              jmacro                   = pkgs.stdenv.lib.overrideDerivation pkgs.haskellPackages.jmacro (oldAttrs: { patches = [ ./jmacro.patch ]; });
-#                                              jmacro                   = pkgs.stdenv.lib.overrideDerivation pkgs.haskellPackages.jmacro (oldAttrs: { patches = [ ./jmacro.patch ]; });
-                                              clckwrks                 = self.callPackage <clckwrks-git> {};
-                                              clckwrks-cli             = self.callPackage <clckwrks-cli-git> {};
-                                              clckwrks-dot-com         = self.callPackage <clckwrks-dot-com-git> {};
-                                              clckwrks-plugin-page     = self.callPackage <clckwrks-plugin-page-git> {};
-                                              clckwrks-plugin-media    = self.callPackage <clckwrks-plugin-media-git> {};
-                                              clckwrks-theme-bootstrap = self.callPackage <clckwrks-theme-bootstrap-git> {};
-                                              clckwrks-theme-clckwrks  = self.callPackage <clckwrks-theme-clckwrks-git> {};
-                                              example-dot-org          = self.callPackage <example-dot-org-git> {};
-                                              hackage-whatsnew         = self.callPackage <hackage-whatsnew-git> {};
-                                              happstack-authenticate   = self.callPackage <happstack-authenticate-git> {};
-                                              happstack-clientession   = self.callPackage <happstack-clientsession-git> {};
-                                              happstack-server         = self.callPackage <happstack-server-git> {};
-                                              happstack-server-tls     = self.callPackage <happstack-server-tls-git> {};
-                                              happstack-hsp            = self.callPackage <happstack-hsp-git> {};
-                                              happstack-jmacro         = self.callPackage <happstack-jmacro-git> {};
-                                              harp                     = overrideCabal super.harp (drv: { src = <harp-git>; });
-                                              http-api-data            = self.callPackage ./pkgs/http-api-data {};
-                                              ixset-typed              = overrideCabal super.ixset-typed (drv: { src = <ixset-typed-git>; });
-                                              magic                    = overrideCabal super.magic (drv: { extraLibraries = (drv.extraLibraries or []) ++ [pkgs.file]; });
-#                                              vector                   = overrideCabal super.vector (drv: { doCheck = false; });
-                                              reform                   = self.callPackage (<reform-git> + /reform) {};
-                                              reform-blaze             = self.callPackage (<reform-git> + /reform-blaze) {};
-                                              reform-happstack         = self.callPackage (<reform-git> + /reform-happstack) {};
-                                              reform-hsp               = self.callPackage (<reform-git> + /reform-hsp) {};
-                                              servant                  = self.callPackage ./pkgs/servant {};
-                                              servant-happstack        = self.callPackage ./pkgs/servant-happstack {};
-                                              web-plugins              = self.callPackage (<web-plugins-git> + /web-plugins) {};
-                                              web-routes               = self.callPackage (<web-routes-git> + /web-routes) {};
-                                              web-routes-boomerang     = self.callPackage (<web-routes-git> + /web-routes-boomerang) {};
-                                              web-routes-happstack     = self.callPackage (<web-routes-git> + /web-routes-happstack) {};
-                                              web-routes-hsp           = self.callPackage (<web-routes-git> + /web-routes-hsp) {};
-                                            };
-                                         };
-
-                                       haskell = pkgs.haskell // {
-                                         packages = pkgs.haskell.packages // {
-                                           ghcjs = pkgs.haskell.packages.ghcjs.override rec {
-                                            overrides = self: super: {
-                                              http-api-data            = self.callPackage ./pkgs/http-api-data {};
-                                              isomaniac                = self.callPackage <isomaniac-src> {};
-                                              servant                  = self.callPackage ./pkgs/servant {};
-                                              servant-isomaniac        = self.callPackage <servant-isomaniac-src> {};
-                                            };
-                                           };
-                                        };
-                                      };
-                                     };
-                                };
+     pkgs = import ./web-core.nix { system = system; };
      ghcJobs = with pkgs.haskellPackages; rec {
        hackage-whatsnew-git         = hackage-whatsnew;
        happstack-authenticate-git   = happstack-authenticate;
